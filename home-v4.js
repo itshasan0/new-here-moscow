@@ -62,7 +62,9 @@ if(home){
       if(branchPath){const bp=clamp((p-.27)/.30);branchPath.style.strokeDashoffset=branchLen*(1-bp);}
       if(branchTwo){const bp2=clamp((p-.55)/.30);branchTwo.style.strokeDashoffset=branchTwoLen*(1-bp2);}
       const f=interpolateFrame(p);
-      if(camera)camera.style.transform=`translate3d(${f.x}vw,${f.y}vh,0) scale(${f.s}) rotate(${f.r}deg)`;
+      const motionScale=innerWidth<=700?.28:innerWidth<=900?.55:1;
+      const cameraScale=innerWidth<=700?.42:innerWidth<=900?.68:1;
+      if(camera)camera.style.transform=`translate3d(${f.x*cameraScale}vw,${f.y*cameraScale}vh,0) scale(${1+(f.s-1)*cameraScale}) rotate(${f.r*cameraScale}deg)`;
       nodes.forEach((node,i)=>node.classList.toggle('active',p>=(nodeThresholds[i]??.4)));
 
       scenes.forEach((scene)=>{
@@ -72,8 +74,8 @@ if(home){
         const centered=local-.5;
         if(copy){
           const dir=copy.classList.contains('scene-right')?-1:copy.classList.contains('scene-center')?0:1;
-          const x=(.5-local)*dir*135;
-          const y=Math.abs(centered)*28;
+          const x=(.5-local)*dir*135*motionScale;
+          const y=Math.abs(centered)*28*motionScale;
           const opacity=clamp(1-Math.abs(centered)*1.25,.12,1);
           copy.style.transform=`translate3d(${x}px,${y}px,0)`;
           copy.style.opacity=opacity;
@@ -89,12 +91,12 @@ if(home){
         const lp=localProgress(switchScene);
         variants.forEach((card,i)=>{
           const dir=i===0?-1:1;
-          const x=(.5-lp)*dir*210;
-          const rot=(.5-lp)*dir*8;
-          card.style.transform=`translate3d(${x}px,${Math.abs(.5-lp)*25}px,0) rotateY(${rot}deg)`;
+          const x=(.5-lp)*dir*210*motionScale;
+          const rot=(.5-lp)*dir*8*motionScale;
+          card.style.transform=`translate3d(${x}px,${Math.abs(.5-lp)*25*motionScale}px,0) rotateY(${rot}deg)`;
           card.style.opacity=clamp(Math.sin(lp*Math.PI)*1.35,.08,1);
         });
-        rails.forEach((rail,i)=>rail.style.transform=`translateX(${(lp-.5)*(i===0?35:-35)}vw)`);
+        rails.forEach((rail,i)=>rail.style.transform=`translateX(${(lp-.5)*(i===0?35:-35)*motionScale}vw)`);
       }
 
       const traceScene=document.querySelector('.scene-traces');
@@ -103,7 +105,7 @@ if(home){
         traces.forEach((pill,i)=>{
           const delay=i*.10;
           const q=clamp((lp-delay)/(.8-delay));
-          pill.style.transform=`translate3d(${(1-q)*(i%2===0?-90:90)}px,${(1-q)*22}px,0)`;
+          pill.style.transform=`translate3d(${(1-q)*(i%2===0?-90:90)*motionScale}px,${(1-q)*22*motionScale}px,0)`;
           pill.style.opacity=clamp(q*1.4,0,1);
         });
       }

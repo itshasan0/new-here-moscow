@@ -142,7 +142,16 @@
     return chainBox?Math.max(0,chainBox.offsetHeight-28):180;
   }
   function updateStep(){
+    const compact=innerWidth<=700;
     const story=document.querySelector('.step-story');
+    if(compact){
+      if(chain) chain.style.height='100%';
+      panels.forEach(panel=>{
+        panel.style.opacity='1';
+        panel.style.transform='none';
+      });
+      return;
+    }
     if(story&&chain){
       const r=story.getBoundingClientRect();
       const max=story.offsetHeight-innerHeight;
