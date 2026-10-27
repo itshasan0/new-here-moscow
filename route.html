@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>My road — NEW HERE</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="route-v11 fixed-screen-page">
+<header class="site-header">
+  <a class="brand" href="index.html"><span class="brand-mark"></span>NEW HERE</a>
+  <nav class="nav">
+    <a href="index.html">Start</a>
+    <a class="active" href="route.html">My road</a>
+    <a href="map.html">Map</a>
+    <a href="step.html">Steps</a>
+  </nav>
+</header>
+
+<main class="route-v11-shell">
+  <section class="route-v11-head">
+    <div>
+      <div class="eyebrow">Персональный маршрут</div>
+      <h1>5 вопросов.<br>Один маршрут.</h1>
+    </div>
+    <p>Ответы нужны только для того, чтобы убрать лишние шаги и показать последовательность, которая относится именно к твоей ситуации.</p>
+  </section>
+
+  <section class="route-v11-body">
+    <div class="route-v11-form">
+      <div class="route-v11-progress">
+        <span id="routeQuestionCounter">ВОПРОС 01 / 05</span>
+        <div class="route-v11-progressbar"><i id="routeQuestionBar"></i></div>
+      </div>
+
+      <div class="route-v11-question active" data-q="0">
+        <div class="route-v11-kicker">01 · гражданство</div>
+        <h2>Из какой страны ты приехал?</h2>
+        <p>Это помогает определить, какая миграционная ветка может относиться к тебе.</p>
+        <label class="route-v11-select"><span>Выбери страну</span><select id="countrySelect"><option>Иран</option><option>Казахстан</option><option>Турция</option><option>Китай</option><option>Другая страна</option></select></label>
+      </div>
+
+      <div class="route-v11-question" data-q="1">
+        <div class="route-v11-kicker">02 · въезд</div>
+        <h2>Как ты въехал в Россию?</h2>
+        <p>Тип въезда меняет часть обязательных шагов и возможные ветки маршрута.</p>
+        <div class="route-v11-options" data-field="entry">
+          <button class="choice-chip active" data-value="Учебная виза">Учебная виза</button>
+          <button class="choice-chip" data-value="Без визы / ЕАЭС">Без визы / ЕАЭС</button>
+          <button class="choice-chip" data-value="Не уверен">Не уверен</button>
+        </div>
+      </div>
+
+      <div class="route-v11-question" data-q="2">
+        <div class="route-v11-kicker">03 · время</div>
+        <h2>Когда ты приехал в Москву?</h2>
+        <p>В первые дни некоторые действия важнее других, поэтому маршрут учитывает время после приезда.</p>
+        <div class="route-v11-options" data-field="arrival">
+          <button class="choice-chip" data-value="Сегодня">Сегодня</button>
+          <button class="choice-chip active" data-value="2–3 дня назад">2–3 дня назад</button>
+          <button class="choice-chip" data-value="На этой неделе">На этой неделе</button>
+        </div>
+      </div>
+
+      <div class="route-v11-question" data-q="3">
+        <div class="route-v11-kicker">04 · вуз</div>
+        <h2>Где ты учишься?</h2>
+        <p>Некоторые шаги и точки помощи зависят от университета.</p>
+        <div class="route-v11-options" data-field="university">
+          <button class="choice-chip active" data-value="ВШЭ">ВШЭ</button>
+          <button class="choice-chip" data-value="МГУ">МГУ</button>
+          <button class="choice-chip" data-value="Другой вуз">Другой вуз</button>
+        </div>
+      </div>
+
+      <div class="route-v11-question" data-q="4">
+        <div class="route-v11-kicker">05 · жильё</div>
+        <h2>Где ты живёшь сейчас?</h2>
+        <p>Это помогает отделить университетские шаги от бытовых.</p>
+        <div class="route-v11-options" data-field="housing">
+          <button class="choice-chip active" data-value="Общежитие">Общежитие</button>
+          <button class="choice-chip" data-value="Съёмное жильё">Съёмное жильё</button>
+          <button class="choice-chip" data-value="У знакомых">У знакомых</button>
+        </div>
+      </div>
+
+      <div class="route-v11-controls">
+        <button id="routePrev" class="route-v11-back" disabled>← Назад</button>
+        <button id="routeNext" class="route-v11-next">Дальше →</button>
+      </div>
+    </div>
+
+    <aside class="route-v11-preview">
+      <div class="route-v11-preview-head">
+        <div><div class="eyebrow orange">Предпросмотр</div><h3>Твой маршрут</h3></div>
+        <span id="routeStatus">ДЕНЬ 02</span>
+      </div>
+      <div class="preview-chips" id="summaryChips"></div>
+      <div class="route-v11-list">
+        <div class="route-v11-item current"><i>01</i><div><strong id="previewTask1">Миграционные документы</strong><small>актуально сейчас</small></div></div>
+        <div class="route-v11-item"><i>02</i><div><strong id="previewTask2">Расписка / подтверждение</strong><small>после предыдущего шага</small></div></div>
+        <div class="route-v11-item"><i>03</i><div><strong id="previewTask3">Пропуск и следующие сервисы</strong><small>откроются дальше</small></div></div>
+      </div>
+      <a class="route-v11-map-btn" href="map.html">Открыть полный маршрут <span>↗</span></a>
+    </aside>
+  </section>
+</main>
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Steps — NEW HERE</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="step-v5">
+  <div class="scroll-progress"><span></span></div>
+  <header class="site-header">
+    <a class="brand" href="index.html"><span class="brand-mark"></span>NEW HERE</a>
+    <nav class="nav">
+      <a href="index.html">Start</a>
+      <a href="route.html">My road</a>
+      <a href="map.html">Map</a>
+      <a class="active" href="step.html">Steps</a>
+    </nav>
+  </header>
+
+  <main class="step-shell-v5">
+    <section class="step-hero-v5">
+      <div class="step-kicker">
+        <div class="eyebrow orange">День 02 · сегодня</div>
+        <div class="step-number">04</div>
+      </div>
+      <div class="step-hero-copy">
+        <div class="eyebrow">Выбранный шаг</div>
+        <h1>Пропуск<br>в корпус.</h1>
+        <p>Сам по себе этот шаг выглядит простым. Но он становится понятным только когда видно, от чего он зависит.</p>
+      </div>
+    </section>
+
+    <section class="step-story">
+      <aside class="step-sticky">
+        <div>
+          <div class="eyebrow blue">Цепочка</div>
+          <div class="mini-chain">
+            <div class="mini-chain-progress" id="chainProgress"></div>
+            <div class="mini-chain-item">
+              <i>01</i>
+              <div><strong>Миграционные документы</strong><small>предыдущий шаг</small></div>
+            </div>
+            <div class="mini-chain-item active">
+              <i>02</i>
+              <div><strong>Расписка / подтверждение</strong><small>нужно сначала</small></div>
+            </div>
+            <div class="mini-chain-item">
+              <i>03</i>
+              <div><strong>Пропуск</strong><small>выбранный шаг</small></div>
+            </div>
+          </div>
+        </div>
+        <div class="step-sticky-note">Скролл показывает, как одно действие открывает следующее. Здесь важна не инструкция сама по себе, а связь между шагами.</div>
+      </aside>
+
+      <div class="step-scroll">
+        <section class="step-panel" data-step-panel>
+          <div class="panel-index">01 · почему</div>
+          <h2>Сначала нужен другой шаг.</h2>
+          <p>Университетский доступ связан с миграционными документами. Поэтому в маршруте сначала появляется подтверждение предыдущего действия, а уже после — пропуск.</p>
+          <div class="action-card">
+            <small>Логика маршрута</small>
+            <strong>Миграционные документы → подтверждение → пропуск</strong>
+            <p>Так пользователь понимает не просто «что сделать», но и почему именно сейчас.</p>
+          </div>
+        </section>
+
+        <section class="step-panel" data-step-panel>
+          <div class="panel-index">02 · что сделать</div>
+          <h2>Проверь, что предыдущий шаг завершён.</h2>
+          <p>На рабочем экране шаг показывает только необходимое действие и не превращается в длинную статью.</p>
+          <div class="two-info">
+            <div><small>Нужно</small><span>Подтверждение того, что необходимые документы переданы.</span></div>
+            <div><small>Где</small><span>Официальная точка визово-миграционного сопровождения / канал вуза.</span></div>
+            <div><small>Источник</small><span>Официальное требование и дата последней проверки.</span></div>
+            <div><small>Если не получается</small><span>Переход к живой помощи вместо ещё одной страницы текста.</span></div>
+          </div>
+        </section>
+
+        <section class="step-panel" data-step-panel>
+          <div class="panel-index">03 · след других</div>
+          <h2>Это не только<br>у тебя.</h2>
+          <p>В проекте на карте появляются повторяющиеся точки затруднения — места, где другие студенты тоже путались в последовательности.</p>
+          <div class="trace-quote">След других студентов: анонимный фрагмент интервью появится здесь после проверки материала.</div>
+        </section>
+
+        <section class="step-panel" data-step-panel>
+          <div class="panel-index">04 · дальше</div>
+          <h2>Шаг закрыт —<br>маршрут продолжается.</h2>
+          <p>После завершения текущей зависимости следующий блок становится активным, а менее срочные задачи остаются видны как контекст.</p>
+          <div class="action-card">
+            <small>Следующий блок</small>
+            <strong>Пропуск → городские и бытовые сервисы</strong>
+            <p>На карте можно увидеть место этого шага во всей последовательности.</p>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <section class="step-end">
+      <div>
+        <div class="eyebrow">Вернуться к системе</div>
+        <h2>Теперь видно,<br>что откроется дальше.</h2>
+        <div class="hero-actions">
+          <a class="primary-action" href="map.html">Открыть Map <span>↗</span></a>
+          <a class="ghost-action" href="route.html">My road</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
